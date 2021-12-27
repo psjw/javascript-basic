@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 문자열 String
+        let name = "John Doe";
+        let name2 = 'John Doe';
+        
+        let dobuleQuote =  'He is called "Johnny"';    
+        console.log(dobuleQuote);
+        
+        let singleQuote = "He is called 'Johnny'";
+        console.log(singleQuote);
+        
+        let dobuleQuote2 =  "He is called \"Johnny\"";    
+        console.log(dobuleQuote2);
+        
+        let singleQuote2 = 'He is \\ called \'Johnny\'';
+        console.log(singleQuote2);
+        
+        //숫자 Number
+        let x = 3;
+        let y = 3.14;
+        
+        //undefined 
+        let u; //undefined -> 선언되지 않음 
+        console.log(u);
+        
+        let u2 = undefined; // undefined -> 하나의 데이터 타입
+        console.log(u2);
+        
+        //Null
+        let n = null; //null 아무것도 아님
+        console.log(n);
+        
+        //Object
+        let person = {};
+        console.log(person);
+        person.firstName = "ps";
+        person.firstName = "ps1"; //값이 재할당 -> 유일한 키값으로 설정해야됨
+        person.lastName = "jw";
+        person.age = 11;
+        
+        console.log(person);
+        
+        let person2 = {
+          firstName: "ps2",
+          lastName: "jw2",
+          age: 112,  
+          person1: person
+        };
+        
+        console.log(person2);
+        person2.email = "aaa@test.com";
+        console.log(person2);
+        console.log(person2.firstName);
+        console.log(person2["lastName"]);
+        
+        
+        let person3={};
+        person3["firstName"] = "ps3";
+        person3["lastName"] = "jw3";
+        person3["age"] = 444;
+        
+        console.log(person3);
+        
+        //배열 - Array
+        let arr1 = ["Hyundai","KIA","Volvo"];
+        console.log(arr1);
+        console.log(arr1[0]);
+        console.log(arr1[1]);
+        console.log(arr1[2]);
+        
+        let arr2 = [3, 7, 2, 9, 12];
+        console.log(arr2[2]);
+        
+        
+        let arr3 = ["Hyundai", 3, undefined];
+        console.log(arr3);
+        
+        let arr4 = [
+          person,
+          person2,
+          person3  
+        ];        
+        console.log(arr4);
+        
+        let arr5 =[];
+        arr5.push(2);
+        arr5.push(4);
+        arr5.push(3);
+        arr5.push(5);
+        //arr5[0] = 1;
+        //arr5[1] = 3;
+        
+        console.log(arr5);
+        console.log(arr5.length);
+        
+        //Boolean 참/거짓 - true or false
+        let isAdult = true;
+        let x2 = 5;
+        let y2 = 7;
+        console.log(x2 > y2);
+        
+        console.log(typeof x2);
+        console.log(typeof isAdult);        
+        console.log(typeof name);
+        console.log(typeof person);
+        console.log(typeof arr1);
+        
+        
+    </script>
+</body>
+</html>

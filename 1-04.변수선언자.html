@@ -17,15 +17,21 @@
         z = x + y;
         console.log("x",x);
         console.log("z",z);
+                              
         //let
         let x1 = 5;//변수 x1에 5를 저장
         let y1 = 6;//변수 y1에 6을 저장
         let z1 = x + y;//z1는 11이 저장
         
         //let은 변수 한번만 선언 가능 -> 프로그램 코드가 길어지면 변수관리가 어려움
-        //let x1 = 7; //Uncaught SyntaxError: Identifier 'z' has already been declared
+        //let x1 = 7; //Uncaught SyntaxError: Identifier 'x1' has already been declared
         x1 = 7;
         //const
+        //한번 선언시 할당된 값을 바꿀수 없음
+        const PI  = 3.14;
+        
+        //const PI = 2.12; //Uncaught SyntaxError: Identifier 'PI' has already been declared
+        //PI = 2.12; //Uncaught TypeError: Assignment to constant variable.
         
     </script>
 </body>
