@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Number
+        var x = 123;
+        //toString()
+        console.log(x.toString());
+        
+        //toFixed() 
+        //지정된 소숫점 자리수까지 반올림으로 표기
+        var x = 123999.563243;
+        console.log(x.toFixed(2));
+        console.log(x.toFixed(1));
+        
+        //toPrecision
+        //정수 + 소수 2자리 반올림하여 2자리
+        var x = 9.565;
+        console.log(x.toPrecision(2));
+        
+        //숫자로 변환
+        var x = Number("10"); //숫자 10
+        console.log(typeof x);
+        var x = Number(true); //true : 1
+        console.log(x);
+        var x = Number(false); //false : 0
+        console.log(x);
+        
+        //공백 무시 후 숫자로 반환
+        console.log(Number("   10   "));
+        console.log(Number("   10.33   "));
+        console.log(Number("   10,33   "));//NaN
+        console.log(Number("test"));//NaN
+        console.log(Number("10 33"));//NaN
+        //NaN - Not a Number : 숫자가 아니다.
+        
+        //parseInt() :문자열을 숫자로 변환->정수형으로만 리턴(버림처리)
+        console.log(parseInt("3"));
+        console.log(parseInt("9.74"));
+        console.log(parseInt("10 33"));//10을 리턴
+        console.log(parseInt("12 years"));//10을 리턴
+        console.log(parseInt("years 12"));//NaN을 리턴
+        
+        //parseFloat() : 문자열을 숫자로 변환->실수형 리턴(버림처리)
+        console.log(parseFloat("10"));
+        console.log(parseFloat("9.74"));
+        console.log(parseFloat("10 33"));
+        console.log(parseFloat("12 years"));        
+        console.log(parseFloat("years 12"));
+        
+    </script>
+</body>
+</html>

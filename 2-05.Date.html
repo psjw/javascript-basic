@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <script>
+        //Date
+        var d = new Date(); //현재 날짜/시간
+        console.log(d);
+        
+        //-540 : 분단위
+        // -540분 =  -9시간
+        console.log("timezone",d.getTimezoneOffset());
+        
+        var year = d.getFullYear();
+        console.log("year",year);
+        
+        var month = d.getMonth();
+        console.log("month",month);
+        
+        var date = d.getDate();
+        console.log("date",date);
+        
+        var day = d.getDay();
+        console.log("day",day);
+        //일요일 - 0
+        //월요일 - 1
+        //화요일 - 2
+        //수요일 - 3
+        //...
+        //토요일 - 6
+        
+        var hour  = d.getHours();
+        var minute = d.getMinutes();
+        var second = d.getSeconds();
+        
+        //로컬 PC의 시간이 나옴
+        
+        //타임존 : 해외 사용자일 경우
+        //한국 : 2021.03.30 12:23:33 => -9 해줘야됨
+        //영국은 우리나라보다 9시간 적음
+        //글제목, 작성자, 작성일 : 2021.03.30 12:23:33
+        //영국 : 2021.03.30 03:23:33
+        //DB는 GMT 0  기준으로 저장
+        //실제 Client단에서 타임존 처리
+        
+        
+        //타임존 9시간 
+        //Fri Dec 31 2021 20:36:04 GMT+0900 (GMT+09:00) 
+        var d = new Date(2021, 3, 27, 23, 50, 55);
+        console.log(d);
+        
+        //month 월인 경우 0부터 시작 1월 - 0
+        //day 일자인 경우 1부터 시작 1일 - 1
+        //1월이 0인 이유 : 글로벌서비스인 경우
+        //우리나라 : 2021-03-21, 2021.03.21
+        //미국(월 일 년도순) : Mar 21, 2021 
+        //월 표기는 국가마다 다름
+        var month_en = ["Jan", "Feb", "Mar"];
+        
+        //3월인 경우 - 2가 아니고 3을 준다고 치면,
+        var month = 3;
+        console.log(month_en[month-1]);
+        //3월인 경우 - 2를 주면,
+        var month = 2;
+        console.log(month_en[month]);
+        
+        var d = new Date();
+        
+        var utcYear  = d.getUTCFullYear();
+        console.log("UtcYear",utcYear);
+        var utcMonth  = d.getUTCMonth();
+        console.log("UtcMonth",utcMonth);
+        
+        d.setFullYear(2020);
+        console.log(d.getFullYear()); 
+        
+        //OpenSource 사용
+        //moment.js
+        console.log(moment().format("YYYY-MM-DD"));
+        console.log(moment().format("MMM DD, YYYY"));
+        
+        //7일전
+        console.log(moment().subtract(7,'days').format("YYYY-MM-DD"));
+        //7일후
+        console.log(moment().add(7,'days').format("YYYY-MM-DD"));
+        //4시간후
+        console.log(moment().add(4,'hours').format("YYYY-MM-DD HH"));
+    </script>
+    
+</body>
+
+</html>

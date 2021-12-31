@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" />
+    <button type="button">저장</button>
+    <script>
+        console.log(window);
+        //window global object라 삭제가능
+        window.alert("이것은 alert 창입니다.");
+
+        //var yn = confirm("정말 삭제하시겠습니까?");
+        //console.log(yn);
+
+        //if (yn) {
+        //    //삭제 실행
+
+        //}
+
+        if (confirm("정말 삭제하시겠습니까?")) {
+            console.log("삭제실행");
+        }
+
+        //input box로 텍스트를 받을수 있음
+        var txt = prompt("비밀번호를 입력하세요");
+        console.log(txt); //취소 누르면 null
+        if (txt == null) {
+
+        } else if (txt == "") {
+
+        } else if (txt != "") {
+            console.log(txt);
+        }
+        
+        window.open("https://www.naver.com");
+        
+        //현재페이지 인쇄
+        window.print();
+        
+        //setTimeout : 지정된 시간 이후에 함수를 한번 실행
+        //첫번째 파라미터 : 함수
+        //두번째 파라미터 : 시간 1000 -> 1초
+        setTimeout(function(){
+            console.log("5초후 프로그램 실행");
+        },5000);
+        
+        
+        //setTimeout : 지정된 시간 간격마다 함수를 실행
+        //첫번째 파라미터 : 함수
+        //두번째 파라미터 : 시간 1000 -> 1초
+        //주식같은데서 사용 : websocket이 없었을때 사용 -> 지속적인 호출로 부하가 심하다.
+        //Websocket 사용시 서버에서 주식 변경을 확인하고, 바뀐 경우에만 내려보냄
+        //clearInterval : setInterval중지    
+        var i =0;
+        var fnc = setInterval(function(){
+            console.log("3초마다 프로그램 실행 - "+i);
+            if(i == 3){
+                clearInterval(fnc);
+            }
+            i++;
+        },3000);
+        
+        
+        
+    </script>
+</body>
+
+</html>

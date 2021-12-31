@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //JSON
+        //json 서버로부터 웹페이지로 데이터를 전송할 때 자주 사용.
+        //웹페이지에서 서버로 데이터를 전송할때도 json 포맷 자주 사용
+        //json - JavaScript Object Notation의 약자
+
+        var data = {
+            "employees": [{
+                "firstName": "John",
+                "lastName": "Doe"
+            }, {
+                "firstName": "John",
+                "lastName": "Doe"
+            }, {
+                "firstName": "John",
+                "lastName": "Doe"
+            }]
+        }
+        
+        //바로 Object로 사용가능
+        console.log(data.employees[0].firstName);
+        
+        //JSON.stringify -> 문자열로 변환
+        console.log(data);
+        
+        //서버 데이터 전송시 Object가 아니라 문자열을 전송        
+        console.log(JSON.stringify(data));
+        
+        //JSON.parse -> object로 변환
+        var text = '{"employees":[{"firstName":"John","lastName":"Doe"},{"firstName":"John","lastName":"Doe"},{"firstName":"John","lastName":"Doe"}]}'
+        var obj = JSON.parse(text);
+        
+        console.log(obj);
+    </script>
+</body>
+
+</html>
