@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log("Hello World");
+        console.info("Hello World"); //정보
+        console.warn("Hello World"); //경고
+        console.error("Hello World"); //에러
+        
+        var userList = [{
+                firstName: "재석",
+                lastName: "유",
+                email: "yu@test.com"
+            },
+            {
+                firstName: "종국",
+                lastName: "김",
+                email: "kim@test.com"
+            },
+            {
+                firstName: "세찬",
+                lastName: "양",
+                email: "yang@test.com"
+            },
+            {
+                firstName: "석진",
+                lastName: "지",
+                email: "ji@test.com"
+            }
+        ];
+        
+        console.log(userList);
+        console.table(userList);
+        
+        //console.time(); ~console.timeEnd(); 코드 실행 시간
+        function a(){
+            console.time();
+            //code
+            console.timeEnd();        
+        }
+        
+        a();
+        //style 먹임 %c
+        console.log("This is %cstyle message.","color:yellow;background-color:blue;padding:4px");
+        
+        //XHR : xml http request의 약자로 JSON받음
+    </script>
+</body>
+</html>

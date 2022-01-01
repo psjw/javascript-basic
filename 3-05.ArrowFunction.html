@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function hello() {
+            console.log("Hello World");
+            return "Hello World";
+        }
+
+        var hello = function () {
+            console.log("Hello World");
+            return "Hello World";
+        }
+
+        //function 생략 => 삽입
+        var hello = () => {
+            console.log("Hello World");
+            return "Hello World";
+        }
+
+        //return 키워드 생략
+        var hello = () => "Hello World";
+
+        var hello = (fullName) => "Hello " + fullName;
+        console.log(hello("John Doe"));
+        
+        //() 생략가능
+        var hello = fullName => "Hello " + fullName;
+        console.log(hello("John Doe"));
+
+        var hello = (firstName, lastName) => "Hello " + firstName + " " + lastName;
+        console.log(hello("John", "Doe"));
+    </script>
+</body>
+
+</html>

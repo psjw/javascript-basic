@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Array Destructuring
+        function getScores() {
+            return [70, 80, 90];
+        }
+
+        var scores = getScores();
+        console.log(scores);
+        console.log(scores[0]);
+
+        var [x, y, z] = getScores();
+        console.log(x);
+        console.log(y);
+
+        var [x, y] = getScores();
+        console.log(x);
+        console.log(y);
+
+        //위도(latitude), 경도(longitude) 
+        //위치 알려주는 라이브러리인 경우
+        function getLocation() {
+            return [123.12, 23.023];
+        }
+        var [latitude, longitude] = getLocation();
+
+        console.log(latitude, longitude);
+    </script>
+   
+</body>
+
+</html>

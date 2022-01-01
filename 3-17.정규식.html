@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 정규식(Regular Expression)
+        // / / 사이의 찾고자 하는 검색 패턴, i : modifier
+        var patt = /World/i; //World - 패턴, i -modifier
+
+        var str = "Hello World! world!";
+        console.log(str.search("World"));
+
+        //i : 대소문자 구분없이 찾음
+        console.log(str.search(/WORLD/i));
+        console.log(str.search("WORLD"));
+
+        console.log(str.replace("World", "TOM"));
+        console.log(str.replace("world", "TOM"));
+        console.log(str.replace(/WORLD/ig, "TOM")); //g : 전부다 찾음
+
+        var str = "Is this all there is";
+        var patt1 = /[hat]/g; //[abc] a or b or c가 있는 모든 문자를 다찾음
+        var result = str.match(patt1);
+        console.log(result);
+
+        //[0-9] 0부터 9까지 모든  숫자 찾음
+        //\d :숫자를 의미
+        var str = "123abc45213kks";
+        var patt2 = /[0-9]/g;
+        var result = str.match(patt2);
+        console.log(result);
+
+        //(a|b) a or b를 모두 찾음
+        var str = "re, green, red, gree, red, blue, yellow";
+        var patt3 = /(red|green)/g;
+        var result = str.match(patt3);
+        console.log(result);
+
+        //\d 숫자 [0-9]
+        var str = "Give 100";
+        var patt4 = /\d/g;
+        var result = str.match(patt4);
+        console.log(result);
+
+        //\s 공백
+        var str = "Give 100";
+        var patt5 = /\s/g;
+        var result = str.match(patt5);
+        console.log(result);
+
+        //\b문자 시작이 문자인걸찾음
+        var str = "HELLO, LOOK AT ME!";
+        var patt6 = /\bLO/g; //시작이 LO인걸 찾음
+        var result = str.search(patt6);
+        console.log(result);
+
+        //문자+ 바로앞에문자하나가 최소한 1개이상 있어야됨
+        var str = "Hellooo";
+        var patt7 = /o+/g;
+        console.log(str.match(patt7));
+
+        //문자* 0 혹은 n개
+        var str = "Hellooo World";
+        var patt8 = /lo*/g; //l or o를 찾음 o는 0개여도됨 
+        console.log(str.match(patt8));
+
+        //문자? 0개이거나 1개
+        var str = "1, 100 or 1000";
+        var patt9 = /10?/g;
+        console.log(str.match(patt9));
+        //https://www.w3schools.com/ 참조
+        //https://www.w3schools.com/jsref/jsref_obj_regexp.asp
+
+        //우편번호 5자리
+        //32543
+        //\d{2} 숫자 2자리
+        var patt10 = /\d{5}/;
+        var postalcode = "23452";
+        //패턴이 맞는지 체크하는 함수 패턴.test(검증문자)
+        console.log(patt10.test(postalcode));
+
+        var postalcode = "ㅋ23452P";
+        //true : 숫자 5자리만 있으면 됨
+        console.log(patt10.test(postalcode));
+
+        //^ 반드시 뒤에껄로 시작해라
+        var patt11 = /^\d{5}/;
+        console.log(patt11.test(postalcode));
+
+        var postalcode = "23452P";
+        //true 앞에만 문자로 안시작하면됨    
+        console.log(patt11.test(postalcode));
+
+        //$ 반드시 앞에껄로 종료해라
+        var postalcode = "Z23452P";
+        var patt12 = /^\d{5}$/;
+        console.log(patt12.test(postalcode));
+
+        var postalcode = "23452P";
+        //false
+        console.log(patt12.test(postalcode));
+        
+        var postalcode = "23452";        
+        console.log(patt12.test(postalcode));
+        
+        //전화번호
+        //010-1234-3333
+        //^ 반드시 010으로 시작
+        //(010) 문자열 010을 한꺼번에 비교
+        var tel = "010-1234-3333";
+        var patt13 = /^(010)-\d{4}-\d{4}$/;
+        console.log(patt13.test(tel));
+        
+        //이메일 주소 
+        //\w 문자열 + 문자열로 무조건 시작
+        //\. .을 일반문자
+        //? 있을수도 있고 없을수도 있음
+        //*있을수도 있고 없을수도 있음
+        //{2,3} 2자리 또는 3자리
+        //.com or .kr
+        var patt14 = /^\w+([\.-]?\w+)*@\w+(\.\w{2,3})+$/;
+        console.log(patt14.test("test@test.com"));
+        console.log(patt14.test("test@test.co.kr"));
+        console.log(patt14.test(".test@test.co.kr"));
+        console.log(patt14.test("testtest.co.kr"));
+        console.log(patt14.test("testtest@.com"));
+        
+    </script>
+</body>
+
+</html>

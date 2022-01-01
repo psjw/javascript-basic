@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="searchTxt" onkeydown="checkEnter(event);" />
+    <button type="button" onclick="doSearch();">조회</button>
+    <table id="tb">
+        <thead>
+            <tr>
+                <th onclick="diSort('name');">name</th>
+                <th onclick="diSort('email');">email</th>
+                <th onclick="diSort('company');">company</th>
+                <th onclick="diSort('address');">address</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script src="/script/4-04.uesr_data.js"></script>
+    <script>
+        //console.log(userList);
+        var currentData = [];
+
+        function diSort(key) {
+            currentData.sort(function (a, b) {
+                return a[key] > b[key] ? 1 : a[key] < b[key] ? -1 : 0;
+            });
+            renderTable(currentData);
+        }
+
+        function checkEnter(event) {
+            if (event.keyCode == 13) {
+                doSearch();
+            }
+        }
+
+        function doSearch() {
+            var searchTxt = document.getElementById("searchTxt").value;
+
+
+            if (searchTxt == "") {
+                currentData = userList;
+                renderTable(userList);
+            } else {
+                //변수를 정규식에 바로 넣을수 없어서 객체로 생성
+                // 첫번째 - 찾을 키워드 , 두번째 - modifier
+                var regExp = new RegExp(searchTxt, "i");
+
+                var data = userList.filter(item => {
+                    if (regExp.test(item.name)) {
+                        return true;
+                    } else if (regExp.test(item.email)) {
+                        return true;
+                    } else if (regExp.test(item.company)) {
+                        return true;
+                    } else if (regExp.test(item.address)) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                });
+                currentData = data;
+                renderTable(data);
+            }
+        }
+
+        function renderTable(data) {
+            var h = [];
+            data.forEach(item => {
+                h.push(`<tr>`);
+                h.push(`<td>${item.name}</td>`);
+                h.push(`<td>${item.email}</td>`);
+                h.push(`<td>${item.company}</td>`);
+                h.push(`<td>${item.address}</td>`);
+                h.push(`</tr>`);
+            });
+            document.querySelector("#tb>tbody").innerHTML = h.join("");
+        }
+    </script>
+</body>
+
+</html>

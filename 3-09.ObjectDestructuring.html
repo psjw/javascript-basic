@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function getPerson() {
+            return {
+                firstName: "John",
+                lastName: "Doe",
+                age: 37,
+                email: "john@test.com",
+                city: "New York",
+                country: "USA"
+            }
+        }
+        
+        var person = getPerson();
+        console.log(person);
+        console.log(person.firstName);
+        console.log(person.lastName);
+        
+        //받은 Object에서 받고싶은 키만 정의
+        var {firstName, lastName} = getPerson();
+        console.log(firstName);
+        console.log(lastName);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //scope는 변수에 대한 접근성을 의미
+        //local scope
+        function myFunction(){
+            var carName = "Hyundai";
+            console.log(carName);
+        }
+        myFunction();
+        //console.log(carname);
+        
+        //global scope
+        var carName2 = "KIA";
+        
+        //브라우저가 script 해석시 function부터 해석
+        //함수 호출 위치 관계없음
+        myFucntion2();
+        
+        //global scope
+        function myFucntion2(){
+            console.log(carName2);
+        }
+        
+        
+        //함수를 변수로 선언시에는 script를 해석할때 해당 코드 Line에 왔을때 해석됨        
+        //오류발생
+        //myFunction3();
+        var myFunction3 = function(){
+            console.log(carName2);
+        }        
+        myFunction3();
+        
+        
+        
+    </script>
+</body>
+</html>

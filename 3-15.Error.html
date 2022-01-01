@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        try {
+            console.log("log 메시지");
+            consol.log("log 메시지");
+        } catch (err) {
+            console.log(err.name);
+            console.log(err.message);
+        } finally {
+            console.log("finally");
+        }
+
+        console.log("log 정상 메시지");
+
+        var x = "";
+        try {
+            //강제로 error발생하여 catch로 전달
+            if (x == "") {
+                throw "empty";
+            }
+        } catch (err) {
+            console.log(`x is ${err}`);
+        } finally {
+            console.log("try/catch문 제일 마지막에 반드시실행");
+        }
+    </script>
+</body>
+
+</html>

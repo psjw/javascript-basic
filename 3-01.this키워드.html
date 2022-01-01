@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <button type="button" onclick="this.style.backgroundColor='red'">클릭</button>
+    <br>
+    <!-- callFunc(this)에서 this는 button 이 전달됨 -->
+    <button type="button" onclick="callFunc(this);">클릭2</button>
+    <br>
+    <select onchange="chageSelect(this);">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+    </select>
+    <script>
+        console.log(window);
+        console.log(this); //window
+
+        var person = {
+            firstName: "John",
+            lastName: "Doe",
+            fullName: function () {
+                return this.firstName + " " + this.lastName;
+            }
+        };
+        console.log(person.fullName());
+        
+        function myfunction(){
+            console.log(this);
+        }
+        myfunction();
+        
+        function callFunc(obj){
+            console.log(obj);
+        }
+        
+        function chageSelect(obj){
+            console.log(obj.value);
+            console.log(obj);
+        }
+    </script>
+</body>
+
+</html>
